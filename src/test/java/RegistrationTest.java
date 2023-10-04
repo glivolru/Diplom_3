@@ -2,9 +2,9 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import page_obj.LoginPage;
-import page_obj.MainPage;
-import page_obj.RegPage;
+import pom.LoginPage;
+import pom.MainPage;
+import pom.RegPage;
 
 
 public class RegistrationTest extends BaseWebDriver {

@@ -1,4 +1,4 @@
-package page_obj;
+package pom;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -86,4 +86,5 @@ public class MainPage extends BasePage {
     public boolean isBunActive() {
         return driver.findElement(buttonBunActive).isDisplayed();
     }
+
 }

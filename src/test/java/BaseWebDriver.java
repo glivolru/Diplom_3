@@ -1,23 +1,37 @@
-import api.Api;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import pens.PensUser;
+import pom.MainPage;
 import serialization.SerializationUser;
-
+import static api.Api.BURGER_URL;
 
 public class BaseWebDriver {
-    WebDriver driver;
     String email;
     String password;
+    private final String chromeBrowser = "Chrome";
+    private final String yandexBrowser = "Yandex";
+    protected WebDriver driver;
+    protected MainPage mainPage;
 
+    @Before
     public void initializationWebDriver() {
-        System.setProperty("webdriver.chrome.driver", "/Users/ivanglushenkov/Downloads/chromedriver-mac-arm64/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
-        driver.get(Api.BURGER_URL);
+        WebDriverManager.chromedriver().setup();
+        selectBrowser(yandexBrowser);
+        mainPage = new MainPage(driver);
+        driver.get(BURGER_URL);
+        driver.manage().window().maximize();
+    }
+
+    public void selectBrowser(String browser) {
+        if (browser.equals(yandexBrowser)) {
+            driver = new ChromeDriver();
+        } else if (browser.equals(chromeBrowser)) {
+            System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\yandexdriver.exe");
+            driver = new ChromeDriver();
+        }
     }
 
     @After

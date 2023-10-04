@@ -2,7 +2,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import page_obj.MainPage;
+import pom.MainPage;
 
 
 public class ConstructorTest extends BaseWebDriver {
@@ -10,7 +10,6 @@ public class ConstructorTest extends BaseWebDriver {
 
     @Before
     public void setUp() {
-        initializationWebDriver();
         mainPage = new MainPage(driver);
     }
 

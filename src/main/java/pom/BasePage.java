@@ -1,4 +1,4 @@
-package page_obj;
+package pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class BasePage {
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
